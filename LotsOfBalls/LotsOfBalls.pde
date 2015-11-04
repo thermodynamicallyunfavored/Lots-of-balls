@@ -14,16 +14,14 @@ float [] diam = new float [count];
 void setup() {
   //set size of canvas
   size(800, 600);
-  //make lots of balls
-  int i = 0;
-  while (i < count) {
+  //make lots of balls\
+  for (int i = 0; i < count; i ++) {
     //initialize variables
-    x[i] = width/2;
-    y[i] = height/3;
+    x[i] = i;
+    y[i] = height/2;
     diam [i] = random(2, 65);
     velX[i] = random(-15, 15);
     velY[i] = random(-20, 20);
-    i ++;
   }
 }
 
@@ -31,8 +29,8 @@ void draw() {
   //draw background to cover previous frame
   background(194, 228, 240);
   //draw ball
-  int i = 0;
-  while (i < count) {
+  
+  for (int i = 0; i < count; i ++) {
     stroke(random(194), random(228), random(240)); //gives ball random stroke
     strokeWeight(4); // makes stroke thicker
     ellipse(x[i], y[i], diam[i], diam[i]);
@@ -52,6 +50,5 @@ void draw() {
     } else if (y[i] - diam[i]/2 <= 0) {
       velY[i] = abs(velY[i]);
     }
-    i ++;
   }
 }
